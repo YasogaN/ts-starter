@@ -86,7 +86,7 @@ git push -u origin main
 ### 9. GitHub repository settings
 
 - **Secrets**: add `NPM_TOKEN` (an npm automation token from npmjs.com). If you use npm OIDC instead, you can drop the token and configure `id-token: write` in `publish.yml` to use the built-in `GITHUB_TOKEN`.
-- **Actions permissions**: under Settings > Actions > General, set *Allow all actions and reusable workflows* and enable *Read and write permissions*.
+- **Actions permissions**: under Settings > Actions > General, set *Allow all actions and reusable workflows*, enable *Read and write permissions*, and check *Allow GitHub Actions to create and approve pull requests*. Without this last one, Release Please cannot open release PRs.
 - **Branch protection** (optional but recommended): require the `ci` status check to pass before merging to `main`.
 
 ### 10. npm publishing
