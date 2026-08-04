@@ -46,10 +46,7 @@
   "linter": {
     "enabled": true,
     "rules": {
-      "preset": "all",
-      "correctness": {
-        "useImportExtensions": "off"
-      },
+      "preset": "recommended",
       "complexity": {
         "noExcessiveCognitiveComplexity": {
           "level": "error",
@@ -57,14 +54,47 @@
             "maxAllowedComplexity": 15
           }
         },
+        "noForEach": "error",
+        "noStaticOnlyClass": "error",
+        "noUselessConstructor": "error",
+        "noUselessLoneBlockStatements": "error",
+        "noUselessSwitchCase": "error",
+        "noUselessTernary": "error",
+        "useArrowFunction": "error",
+        "useFlatMap": "error",
+        "useOptionalChain": "error",
         "useSimplifiedLogicExpression": "error"
       },
+      "correctness": {
+        "noUnusedImports": "error",
+        "noUnusedPrivateClassMembers": "error",
+        "noUnusedVariables": "error"
+      },
       "performance": {
-        "noBarrelFile": "off"
+        "noAccumulatingSpread": "error",
+        "noDelete": "error"
       },
       "style": {
         "noDefaultExport": "error",
+        "noImplicitBoolean": "error",
+        "noInferrableTypes": "error",
+        "noNamespace": "error",
+        "noNegationElse": "error",
         "noNonNullAssertion": "error",
+        "noParameterAssign": "error",
+        "noShoutyConstants": "error",
+        "noUnusedTemplateLiteral": "error",
+        "useBlockStatements": "error",
+        "useCollapsedElseIf": "error",
+        "useConsistentArrayType": {
+          "level": "error",
+          "options": {
+            "syntax": "shorthand"
+          }
+        },
+        "useDefaultParameterLast": "error",
+        "useExplicitLengthCheck": "error",
+        "useExportType": "error",
         "useFilenamingConvention": {
           "level": "error",
           "options": {
@@ -72,7 +102,24 @@
             "requireAscii": true,
             "filenameCases": ["camelCase", "kebab-case", "PascalCase"]
           }
-        }
+        },
+        "useImportType": "error",
+        "useSingleVarDeclarator": "error",
+        "useTemplate": "error"
+      },
+      "suspicious": {
+        "noAssignInExpressions": "error",
+        "noConfusingVoidType": "error",
+        "noConsole": "error",
+        "noExplicitAny": "error",
+        "noGlobalAssign": "error",
+        "noLabelVar": "error",
+        "noPrototypeBuiltins": "error",
+        "noRedundantUseStrict": "error",
+        "noSelfCompare": "error",
+        "noShadowRestrictedNames": "error",
+        "noThenProperty": "error",
+        "useErrorMessage": "error"
       }
     }
   },
@@ -95,18 +142,7 @@
             "noNodejsModules": "off"
           },
           "style": {
-            "noDefaultExport": "off",
-            "noMagicNumbers": "off"
-          }
-        }
-      }
-    },
-    {
-      "includes": ["**/*.json"],
-      "linter": {
-        "rules": {
-          "style": {
-            "noMagicNumbers": "off"
+            "noDefaultExport": "off"
           }
         }
       }
