@@ -47,16 +47,19 @@
     "enabled": true,
     "rules": {
       "preset": "recommended",
+
       "complexity": {
+        "noBannedTypes": "error",
+        "noCommaOperator": "error",
         "noExcessiveCognitiveComplexity": {
           "level": "error",
-          "options": {
-            "maxAllowedComplexity": 15
-          }
+          "options": { "maxAllowedComplexity": 15 }
         },
         "noForEach": "error",
         "noStaticOnlyClass": "error",
+        "noUselessCatch": "error",
         "noUselessConstructor": "error",
+        "noUselessFragments": "error",
         "noUselessLoneBlockStatements": "error",
         "noUselessSwitchCase": "error",
         "noUselessTernary": "error",
@@ -65,15 +68,19 @@
         "useOptionalChain": "error",
         "useSimplifiedLogicExpression": "error"
       },
+
       "correctness": {
+        "noUnusedFunctionParameters": "error",
         "noUnusedImports": "error",
         "noUnusedPrivateClassMembers": "error",
         "noUnusedVariables": "error"
       },
+
       "performance": {
         "noAccumulatingSpread": "error",
         "noDelete": "error"
       },
+
       "style": {
         "noDefaultExport": "error",
         "noImplicitBoolean": "error",
@@ -88,9 +95,7 @@
         "useCollapsedElseIf": "error",
         "useConsistentArrayType": {
           "level": "error",
-          "options": {
-            "syntax": "shorthand"
-          }
+          "options": { "syntax": "shorthand" }
         },
         "useDefaultParameterLast": "error",
         "useExplicitLengthCheck": "error",
@@ -104,13 +109,19 @@
           }
         },
         "useImportType": "error",
+        "useNodejsImportProtocol": "error",
         "useSingleVarDeclarator": "error",
-        "useTemplate": "error"
+        "useTemplate": "error",
+        "useThrowNewError": "error",
+        "useThrowOnlyError": "error"
       },
+
       "suspicious": {
+        "noApproximativeNumericConstant": "error",
         "noAssignInExpressions": "error",
         "noConfusingVoidType": "error",
         "noConsole": "error",
+        "noConstEnum": "error",
         "noExplicitAny": "error",
         "noGlobalAssign": "error",
         "noLabelVar": "error",
@@ -119,6 +130,7 @@
         "noSelfCompare": "error",
         "noShadowRestrictedNames": "error",
         "noThenProperty": "error",
+        "noUnsafeNegation": "error",
         "useErrorMessage": "error"
       }
     }
