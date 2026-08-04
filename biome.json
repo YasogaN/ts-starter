@@ -47,6 +47,9 @@
     "enabled": true,
     "rules": {
       "preset": "all",
+      "correctness": {
+        "useImportExtensions": "off"
+      },
       "complexity": {
         "noExcessiveCognitiveComplexity": {
           "level": "error",
@@ -55,6 +58,9 @@
           }
         },
         "useSimplifiedLogicExpression": "error"
+      },
+      "performance": {
+        "noBarrelFile": "off"
       },
       "style": {
         "noDefaultExport": "error",
@@ -69,5 +75,41 @@
         }
       }
     }
-  }
+  },
+  "overrides": [
+    {
+      "includes": ["**/*.test.ts"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noMagicNumbers": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": ["**/vitest.config.ts", "**/tsup.config.ts", "**/commitlint.config.*"],
+      "linter": {
+        "rules": {
+          "correctness": {
+            "noNodejsModules": "off"
+          },
+          "style": {
+            "noDefaultExport": "off",
+            "noMagicNumbers": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": ["**/*.json"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noMagicNumbers": "off"
+          }
+        }
+      }
+    }
+  ]
 }
