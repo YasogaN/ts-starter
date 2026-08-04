@@ -51,7 +51,7 @@ jobs:
         run: pnpm knip
 
       - name: Audit
-        run: pnpm audit
+        run: pnpm audit --audit-level high
 
       - name: Package Check
         run: pnpm pubcheck
