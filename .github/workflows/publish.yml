@@ -44,9 +44,13 @@ jobs:
           cache: pnpm
 
       - name: Verify version matches tag
-        if: ${{ github.event_name != 'workflow_dispatch' }}
         run: |
-          TAG_VERSION="${GITHUB_REF_NAME#v}"
+          if [ -n "${{ github.event.inputs.tag }}" ]; then
+            TAG_VERSION="${{ github.event.inputs.tag }}"
+          else
+            TAG_VERSION="${{ github.ref_name }}"
+          fi
+          TAG_VERSION="${TAG_VERSION#v}"
           PKG_VERSION="$(node -p "require('./package.json').version")"
           if [ "$TAG_VERSION" != "$PKG_VERSION" ]; then
             echo "::error::Tag v$TAG_VERSION != package.json $PKG_VERSION"
