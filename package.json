@@ -3,11 +3,12 @@
   "version": "0.0.0",
   "private": false,
   "description": "",
+  "license": "Apache-2.0",
   "type": "module",
   "exports": {
     ".": {
       "import": {
-        "types": "./dist/index.d.mts",
+        "types": "./dist/index.d.ts",
         "default": "./dist/index.js"
       },
       "require": {
@@ -28,7 +29,9 @@
   },
   "packageManager": "pnpm@11.20.0",
   "scripts": {
-    "build": "tsup",
+    "build": "tsup && pnpm build:dts",
+    "build:js": "tsup",
+    "build:dts": "tsc -p tsconfig.build.json --emitDeclarationOnly && cp dist/index.d.ts dist/index.d.cts",
     "dev": "tsup --watch",
     "check": "biome check .",
     "check:fix": "biome check --write .",
