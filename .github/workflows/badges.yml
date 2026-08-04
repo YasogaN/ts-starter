@@ -1,0 +1,58 @@
+name: Badges
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  badges:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.20.0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Compute coverage
+        run: pnpm test:coverage
+
+      - name: Compute size
+        run: pnpm build && pnpm size --json > size.json
+
+      - name: Generate badge JSON
+        run: |
+          mkdir -p badges
+          COV=$(node -p "JSON.stringify(Math.round(require('./coverage/coverage-summary.json').total.statements.pct))")
+          echo "{\"schemaVersion\":1,\"label\":\"coverage\",\"message\":\"${COV}%\",\"color\":\"brightgreen\"}" > badges/coverage.json
+          SIZE=$(node -e "
+            const d=JSON.parse(require('fs').readFileSync('size.json','utf8'));
+            const esm=d.find(i=>i.name==='esm');
+            const kb=esm?(esm.size/1024).toFixed(1):'N/A';
+            console.log(kb+' kB')
+          ")
+          echo "{\"schemaVersion\":1,\"label\":\"size\",\"message\":\"${SIZE}\",\"color\":\"blue\"}" > badges/size.json
+
+      - name: Push badges
+        run: |
+          git fetch origin badges 2>/dev/null || true
+          git checkout --orphan badges-tmp
+          cp badges/*.json .
+          git add coverage.json size.json
+          git -c user.name="github-actions[bot]" \
+              -c user.email="github-actions[bot]@users.noreply.github.com" \
+              commit -m "chore: update badges" || echo "no changes"
+          git push origin HEAD:refs/heads/badges --force
