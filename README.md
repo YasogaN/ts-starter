@@ -1,7 +1,7 @@
 # ts-starter
 
 [![CI](https://img.shields.io/github/actions/workflow/status/OWNER/REPO/ci.yml?style=for-the-badge&label=CI)](https://github.com/OWNER/REPO/actions/workflows/ci.yml)
-[![npm](https://img.shields.io/npm/v/ts-starter?style=for-the-badge&color=cb3837)](https://www.npmjs.com/package/ts-starter)
+[![npm](https://img.shields.io/npm/v/@OWNER/REPO?style=for-the-badge&color=cb3837)](https://www.npmjs.com/package/@OWNER/REPO)
 [![coverage](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/OWNER/REPO/refs/heads/badges/coverage.json&style=for-the-badge)](https://github.com/OWNER/REPO)
 [![size](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/OWNER/REPO/refs/heads/badges/size.json&style=for-the-badge)](https://github.com/OWNER/REPO)
 [![license](https://img.shields.io/badge/license-Apache%202.0-blue?style=for-the-badge)](LICENSE)
