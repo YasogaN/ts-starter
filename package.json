@@ -60,19 +60,19 @@
     }
   ],
   "devDependencies": {
-    "@biomejs/biome": "2.5.6",
-    "@commitlint/cli": "21.2.1",
-    "@commitlint/config-conventional": "21.2.0",
+    "@biomejs/biome": "2.5.9",
+    "@commitlint/cli": "21.2.2",
+    "@commitlint/config-conventional": "21.2.2",
     "@size-limit/preset-small-lib": "13.0.3",
     "@types/node": "24.13.3",
-    "@vitest/coverage-v8": "4.1.10",
+    "@vitest/coverage-v8": "4.1.11",
     "@arethetypeswrong/cli": "0.18.5",
-    "knip": "6.31.0",
+    "knip": "6.32.2",
     "lefthook": "2.1.10",
-    "publint": "0.3.23",
+    "publint": "0.3.24",
     "size-limit": "13.0.3",
     "tsup": "8.5.1",
     "typescript": "7.0.2",
-    "vitest": "4.1.10"
+    "vitest": "4.1.11"
   }
 }
